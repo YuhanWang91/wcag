@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+           $("#btnTest").click(function (e) {
+               $.ajax({
+                   url:'/getText',
+                   data: {'url':$('#tbUrl').val()},
+                   success: function (sents) {
+                       console.info(sents)
+                       sents = sents.replace(/'/g,"\"");
+                       sents = JSON.parse(sents);
+                       html_output = "";
+                       for(i=0;i<sents.length;++i){
+                           sent = sents[i];
+                           for(j=0;j<sent.length;++j){
+                               pair = sent[j];
+                               word = pair[0];
+                               score = new Number(pair[1]);
+                               html_output += "<span style='background-color:rgba(255,0,0," + score + "');>" + word + "[" + score.toFixed(3) + "]" + "</span>" + " ";
+                           }
+                           html_output += "<br />";
+                       }
+
+                       $("#dvResult").html(html_output);
+                   }
+               });
+           });
+        });
+    </script>
+</head>
+<body>
+Web Url: <input type="text" id="tbUrl" style="width: 70%" />
+<input type="button" id="btnTest" value="Test" /><br />
+<br />
+<hr />
+<div id="dvResult"></div>
+
+</body>
+</html>

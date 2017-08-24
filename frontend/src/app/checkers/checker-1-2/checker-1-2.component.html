@@ -1,0 +1,35 @@
+<div class="container">
+  <panel padding="2rem">
+    <h2> <mdl-icon>remove_red_eye</mdl-icon>1.2  Time-based Media</h2>
+    <paragraph title="Description:">
+      Provide alternatives for time-based media.
+    </paragraph>
+    <paragraph title="How To Use:">
+      copy the url of the webpage to the following textbox and click "TEST" button, the result will be the score of text alternatives in the given text. The lower the score, the less the text alternative.
+    </paragraph>
+    <paragraph title="Test Panel:">
+      <div class="test-panel">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <mdl-textfield style="width:100%;" label="URL to test" floating-label [(ngModel)]="url"></mdl-textfield>
+          </div>
+          <div class="mdl-cell mdl-cell-2-col">
+            <button class="inline-button" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple (click)="test()">test</button>
+          </div>
+        </div>
+      </div>
+    </paragraph>
+
+    <paragraph title="Result:" *ngIf="result || isloading">
+      <div>
+        <mdl-spinner class="inline-button" [active]="isloading" *ngIf="isloading"></mdl-spinner>
+        <div *ngIf="!isloading || result">
+
+          <checker-1-1-assessment [data]="result"></checker-1-1-assessment>
+        </div>
+
+      </div>
+    </paragraph>
+
+  </panel>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <panel padding="2rem">
+    <h2> <mdl-icon>remove_red_eye</mdl-icon> Readability Assessment</h2>
+    <paragraph title="Description:">
+      our model focuses on automatically identify surprisal words in a text, which indicate the words to be disagree with context so that barriers could hinder the reader. The surprisal value of word is defined as the dissimilarity between current word and previous word. The dissimilarity could be understood as arbitrary combination of words occur less frequently in the corpus that hinder the reader.
+    </paragraph>
+    <paragraph title="How To Use:">
+      copy the url of the webpage to the following textbox and click "TEST" button, the result will be the readability of the words. The lower the readability, the lower the score.
+    </paragraph>
+    <paragraph title="Test Panel:">
+      <div class="test-panel">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <mdl-textfield style="width:100%;" label="URL to test" floating-label [(ngModel)]="url"></mdl-textfield>
+          </div>
+          <div class="mdl-cell mdl-cell-2-col">
+            <button class="inline-button" mdl-button mdl-button-type="raised" mdl-colored="primary" mdl-ripple (click)="test()">test</button>
+          </div>
+        </div>
+      </div>
+    </paragraph>
+
+    <paragraph title="Result:" *ngIf="result || isloading">
+      <div>
+        <mdl-spinner class="inline-button" [active]="isloading" *ngIf="isloading"></mdl-spinner>
+        <div *ngIf="!isloading || result">
+          <!--<div class="sentence" *ngFor="let sent of sentences">-->
+            <!--<div class="word" *ngFor="let word of sent; let i = index"  >-->
+              <!--<span *ngIf="i !=0">&nbsp;</span> <span  [style.color]="'red'" [style.opacity]="word.score * 0.66 + 0.33">{{word.text}}</span>-->
+            <!--</div>-->
+          <!--</div>-->
+          <readability-assessment [data]="result"></readability-assessment>
+        </div>
+
+      </div>
+    </paragraph>
+
+  </panel>
+</div>

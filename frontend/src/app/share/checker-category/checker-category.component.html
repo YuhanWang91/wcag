@@ -1,0 +1,9 @@
+<panel>
+  <h3> <mdl-icon>{{icon}}</mdl-icon> {{title}}</h3>
+  <ng-content>
+  </ng-content>
+  <mdl-table-selectable mdl-shadow="2"
+                        [table-model]="tableModel"
+                        (table-model-selectionChanged)="selectionChanged($event)">
+  </mdl-table-selectable>
+</panel>

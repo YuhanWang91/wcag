@@ -1,0 +1,38 @@
+<h3 class="description">Average Readability Score: {{averageScore}}</h3>
+<h3 class="description">Surprisal Word Ratio: {{surpriseWordRatio * 100}}%</h3>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+    <div style="display: block">
+      <canvas baseChart
+              [data]="supriseWordCount"
+              [labels]="['Surprisal', 'Unsurprisal']"
+              [chartType]="'doughnut'"></canvas>
+      <div class="description" style="text-align: center">Surprisal / Unsurprisal words ratio</div>
+    </div>
+  </div>
+
+  <div class="mdl-cell mdl-cell--4-col">
+
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+      <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Surprisal Word</th>
+        <th>Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let word of surpriseWords">
+        <td class="mdl-data-table__cell--non-numeric">{{word.text}}</td>
+        <td>{{word.score}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+<show-details title="Sentences">
+  <div class="detail">
+    <sentence *ngFor="let sent of sentences" [sentence]="sent"></sentence>
+  </div>
+</show-details>

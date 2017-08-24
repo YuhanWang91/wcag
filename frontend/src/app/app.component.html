@@ -1,0 +1,39 @@
+<div>
+  <mdl-layout #layout="mdlLayout" mdl-layout-fixed-header mdl-layout-fixed-drawer>
+    <mdl-layout-header >
+      <mdl-layout-header-row>
+        <mdl-layout-title></mdl-layout-title>
+        <mdl-layout-spacer></mdl-layout-spacer>
+        <nav class="mdl-navigation">
+          <!--<a class="mdl-navigation__link" >Link 1</a>-->
+
+        </nav>
+      </mdl-layout-header-row>
+    </mdl-layout-header>
+    <mdl-layout-drawer>
+      <mdl-layout-title>
+        <!--<h2>WAM</h2>-->
+        <div style="margin-left: -3rem; margin-bottom: -1rem">
+          <a href="" routerLink="/"><img src="/images/WAM-Logo.jpg" alt="" style="width: 100%;display: inline-block"></a>
+        </div>
+      </mdl-layout-title>
+      <nav class="mdl-navigation">
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" routerLink="/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation" >home</i>Home</a>
+
+          <a class="mdl-navigation__link" routerLink="/perceivable-dashboard" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Perceivable</a>
+          <a class="mdl-navigation__link" routerLink="/operable-dashboard" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Operable</a>
+          <a class="mdl-navigation__link" routerLink="/readability-dashboard"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">remove_red_eye</i>Understandable</a>
+          <a class="mdl-navigation__link" routerLink="/robust-dashboard" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Robust</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>About Us</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span>Help</span></a>
+        </nav>
+      </nav>
+    </mdl-layout-drawer>
+    <mdl-layout-content>
+      <router-outlet></router-outlet>
+    </mdl-layout-content>
+  </mdl-layout>
+</div>
+

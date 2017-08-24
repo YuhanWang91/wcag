@@ -1,0 +1,8 @@
+cd frontend
+ng build
+cd ..
+cp frontend/dist/* backend/static
+docker build -t web-access .
+docker tag web-access:latest 163126224384.dkr.ecr.us-east-2.amazonaws.com/web-access:latest
+$(aws ecr get-login --no-include-email --region us-east-2)
+docker push 163126224384.dkr.ecr.us-east-2.amazonaws.com/web-access:latest

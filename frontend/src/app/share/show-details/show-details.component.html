@@ -1,0 +1,8 @@
+<div>
+  <h4>{{title}}</h4>
+  <ng-content select=".summary"></ng-content>
+  <button mdl-button (click)="showDetail()" *ngIf="!isShowDetail" mdl-colored="accent">show details</button>
+  <div *ngIf="isShowDetail">
+    <ng-content select=".detail"></ng-content>
+  </div>
+</div>

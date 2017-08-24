@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+           $("#btnTest").click(function (e) {
+               $.ajax({
+                   url:'/getScore',
+                   data: {'title':$('#tbTitle').val(), "doc":$('#tbDocument').val()},
+                   success: function (e) {
+                       console.info(e);
+                       $("#dvResult").text(e);
+                   }
+               });
+            });
+        });
+        </script>
+</head>
+<body>
+<table style="width: 1000px">
+    <tr><td>Title: </td><td style="width: 100%"><input type="text" id="tbTitle" style="width: 100%" /></td></tr>
+    <tr><td>Document: </td><td><textarea type="text" id="tbDocument" style="width: 100%;height: 300px" ></textarea></td></tr>
+</table>
+<input type="button" id="btnTest" value="Test" /><br />
+Similarity Score: <div id="dvResult"></div>
+</body>
+</html>

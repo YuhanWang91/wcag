@@ -1,0 +1,12 @@
+<h3 class="description">Total Score: {{data.total_score.toFixed(3)}}</h3>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col" *ngFor="let result of data.subs">
+    <div style="display: block">
+      <canvas baseChart
+              [data]="result.ratio"
+              [labels]="['Bad', 'Good']"
+              [chartType]="'doughnut'"></canvas>
+      <div class="description" style="text-align: center">Score of {{result.name}}:{{!result.present ? '(not present)' : result.score.toFixed(3)}} </div>
+    </div>
+  </div>
+</div>
